@@ -7,37 +7,37 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const scroll = useScroll()
   const group = useRef()
-  const { nodes, materials, animations } = useGLTF('./ABC6.glb')
+  const { nodes, materials, animations } = useGLTF('./ABC8.glb')
   const { actions, ref } = useAnimations(animations, group)
   const [anim3Playing, setAnim3Playing] = useState(false);
 
-  useEffect(() => void (actions.Camera_Animation.reset().play().paused = true), [])
-  useFrame(() => (actions.Camera_Animation.time = actions.Camera_Animation.getClip().duration * scroll.offset))
+  useEffect(() => void (actions.cam2.reset().play().paused = true), [])
+  useFrame(() => (actions.cam2.time = actions.cam2.getClip().duration * scroll.offset))
 
-  // useEffect(() => {
-  //   // Loop through all animations and start them except Anim_0
-  //   for (const key in actions) {
-  //     if (key !== 'Camera' && key !== 'Anim_3') {
-  //       actions[key].reset().play();
-  //     }
-  //   }
-  // }, []); // Run this effect only once after component mount
-  // const handleAnim3Click = () => {
-  //   if (!anim3Playing) {
-  //     // If Anim_3 is not playing, start it
-  //     actions.Anim_3.reset().play();
-  //     setAnim3Playing(true);
-  //   } else {
-  //     // If Anim_3 is playing, stop it
-  //     actions.Anim_3.stop();
-  //     setAnim3Playing(false);
-  //   }
-  // };
+  useEffect(() => {
+    // Loop through all animations and start them except Anim_0
+    for (const key in actions) {
+      if (key !== 'cam2') {
+        actions[key].reset().play();
+      }
+    }
+  }, []); // Run this effect only once after component mount
+  const handleAnim3Click = () => {
+    if (!anim3Playing) {
+      // If Anim_3 is not playing, start it
+      actions.shoe.reset().play();
+      setAnim3Playing(true);
+    } else {
+      // If Anim_3 is playing, stop it
+      actions.shoe.stop();
+      setAnim3Playing(false);
+    }
+  };
 
 
 
   return (
-    <group ref={group} {...props} dispose={null}>
+<group ref={group} {...props} dispose={null}>
       <group name="Scene">
         <group name="Boole" position={[-1561.075, 718.351, -75.306]} />
         <group
@@ -46,15 +46,6 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
           rotation={[Math.PI / 2, 0, 0]}
           scale={0.01}>
           <group name="artworks" position={[-220.481, 348.246, 113.352]}>
-            <mesh
-              name="dior_sneaker_remesh"
-              castShadow
-              receiveShadow
-              geometry={nodes.dior_sneaker_remesh.geometry}
-              material={materials['dior leather']}
-              position={[229.665, -348.477, -21.288]}
-              rotation={[-0.142, 0.019, -1.545]}
-            />
             <group
               name="mirror_artwork"
               position={[-168.015, 874.106, -40.165]}
@@ -505,18 +496,6 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
           scale={0.01}
         />
         <mesh
-          name="Cube__Copy_"
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube__Copy_.geometry}
-          material={nodes.Cube__Copy_.material}
-          position={[-9.109, 1.27, -11.895]}
-          rotation={[1.527, -0.069, 2.592]}
-          scale={0.01}
-        >
-          <PerspectiveCamera far={ 10000 } rotation={ [ Math.PI * -0.5, 0, 0 ] } fov={isMobile ? 85 : 40} makeDefault/>
-        </mesh>
-        <mesh
           name="floor_oustide"
           castShadow
           receiveShadow
@@ -723,9 +702,31 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
           rotation={[Math.PI / 2, 0, 0]}
           scale={0.01}
         />
+        <mesh
+          name="Volume_Mesher_remesh_remesh"
+          castShadow
+          receiveShadow
+          geometry={nodes.Volume_Mesher_remesh_remesh.geometry}
+          material={materials['500gsm_cotton_grey_FRONT_43288_1.002']}
+          position={[-1.765, 1.294, -0.184]}
+          rotation={[1.697, -0.56, 0]}
+          scale={0.01}
+        />
+        <mesh
+          name="camera_animation2"
+          castShadow
+          receiveShadow
+          geometry={nodes.camera_animation2.geometry}
+          material={nodes.camera_animation2.material}
+          position={[-9.109, 1.27, -11.895]}
+          rotation={[1.57, 0.001, 2.593]}
+          scale={0.01}
+        >
+          <PerspectiveCamera far={ 10000 } rotation={ [ Math.PI * -0.5, 0, 0 ] } fov={isMobile ? 85 : 40} makeDefault/>
+        </mesh>
       </group>
     </group>
   )
 }
 
-useGLTF.preload('./ABC6.glb')
+useGLTF.preload('./ABC8.glb')
