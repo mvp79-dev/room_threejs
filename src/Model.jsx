@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useGLTF, useAnimations, PerspectiveCamera, ScrollControls, useScroll, Html, MeshTransmissionMaterial } from '@react-three/drei'
+import { useGLTF, useAnimations, PerspectiveCamera, ScrollControls, useScroll, Html, MeshTransmissionMaterial, useVideoTexture } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { useMediaQuery } from 'react-responsive';
 
@@ -34,6 +34,8 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
     }
   };
 
+  const myVideoTexture = useVideoTexture("10.mp4")
+
 
 
   return (
@@ -65,9 +67,11 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
               castShadow
               receiveShadow
               geometry={nodes.monolit.geometry}
-              material={materials.emission}
               position={[2021.128, -347.906, -47.809]}
-            />
+              rotation={[ 0, Math.PI / 1, 0 ]}
+            >
+              <meshBasicMaterial map={myVideoTexture} />
+            </mesh>
             <mesh
               name="neuendorf_stool"
               castShadow
