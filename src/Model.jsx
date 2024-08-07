@@ -431,6 +431,7 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
           scale={0.01}
         >
           {/* <meshPhysicalMaterial thickness={5} roughness={0} clearcoat={0.25} clearcoatRoughness={0} transmission={1} ior={1} /> */}
+          <meshPhongMaterial color="#f3f1ed" opacity={0.25} transparent />
         </mesh>
         <mesh
           name="Cube_1001"
@@ -442,6 +443,7 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
           scale={0.01}
         >
           {/* <meshPhysicalMaterial thickness={5} roughness={0} clearcoat={0.25} clearcoatRoughness={0} transmission={1} ior={1} /> */}
+          <meshPhongMaterial color="#f3f1ed" opacity={0.25} transparent />
         </mesh>
         <mesh
           name="glass_save_1001"
@@ -452,7 +454,8 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
           rotation={[0, 0, -Math.PI]}
           scale={0.01}
         >
-          <MeshTransmissionMaterial thickness={10} roughness={0} transmission={1} ior={1.2} backside={true} clearcoat={1} clearcoatRoughness={0} />
+          {/* <MeshTransmissionMaterial thickness={10} roughness={0} transmission={1} ior={1.2} backside={true} clearcoat={1} clearcoatRoughness={0} /> */}
+          <meshPhongMaterial color="#f3f1ed" opacity={0.25} transparent />
         </mesh>
         <mesh
           name="FBX_AS01_BambusaVulgaris_2"
