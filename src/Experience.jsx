@@ -14,7 +14,7 @@ export default function Experience() {
         </ScrollControls>
       </Suspense>
       <directionalLight 
-        color={ "#FCEBE4" } shadow-bias={-0.001} castShadow position={[10, 35, -25]} 
+        color={ "#FCEBE4" } shadow-bias={-0.001} castShadow position={[-5, 25, 25]} 
         intensity={1} shadow-mapSize-width={4096} shadow-mapSize-height={4096} 
       >
         <orthographicCamera attach="shadow-camera" args={[-25, 25, -25, 25, 0.1, 100]} />
@@ -22,8 +22,8 @@ export default function Experience() {
       <EffectComposer disableNormalPass >
         <N8AO aoRadius={20} distanceFalloff={0.2} intensity={1.7} screenSpaceRadius quality="high" halfRes  />
       </EffectComposer>
-      <Environment files="./env6.hdr" background backgroundBlurriness={ 0 } />
-      <ambientLight intensity={ 0.5 } />
+      <Environment files="./env6.hdr" background backgroundBlurriness={ 0 } backgroundIntensity={1} environmentIntensity={0} />
+      {/* <ambientLight intensity={ 0.5 } /> */}
 
       </>
   )
