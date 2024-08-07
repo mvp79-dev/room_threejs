@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useGLTF, useAnimations, PerspectiveCamera, ScrollControls, useScroll, Html, MeshTransmissionMaterial, useVideoTexture } from '@react-three/drei'
+import { useGLTF, useAnimations, PerspectiveCamera, ScrollControls, useScroll, Html, MeshTransmissionMaterial, useVideoTexture, Instances, Instance } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { useMediaQuery } from 'react-responsive';
 
@@ -385,7 +385,49 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
             />
           </group>
         </group>
+        {/* <Instances geometry={nodes.Volume_Mesher_1.geometry} material={materials['Material.001']}>
+          <boxGeometry />
+          <Instance position={[-11.227, 0.719, 16.352]} rotation={[Math.PI / 2, 0, -2.618]} scale={1} />
+          <Instance position={[-12.024, 0.868, 15.692]} rotation={[Math.PI / 2, 0, -2.618]} scale={1} />
+          <Instance position={[-10.317, 0.768, 16.284]} rotation={[Math.PI / 2, 0, -2.618]} scale={1} />
+        </Instances> */}
         <mesh
+          name="Volume_Mesher_1"
+          castShadow
+          receiveShadow
+          geometry={nodes.Volume_Mesher_1.geometry}
+          material={materials['Material.001']}
+          rotation={[Math.PI / 2, 0, 0]}
+          position={[0, 0, 0]}
+        />
+        <mesh
+          name="Volume_Mesher_1"
+          castShadow
+          receiveShadow
+          geometry={nodes.Volume_Mesher_1.geometry}
+          material={materials['Material.001']}
+          rotation={[Math.PI / 2, 0, 0]}
+          position={[0.95, 0, 0.5]}
+        />
+        <mesh
+          name="Volume_Mesher_1"
+          castShadow
+          receiveShadow
+          geometry={nodes.Volume_Mesher_1.geometry}
+          material={materials['Material.001']}
+          rotation={[Math.PI / 2, 0, 0]}
+          position={[0.05, 0, 0.6]}
+        />
+        <mesh
+          name="Volume_Mesher_1"
+          castShadow
+          receiveShadow
+          geometry={nodes.Volume_Mesher_1.geometry}
+          material={materials['Material.001']}
+          rotation={[Math.PI / 2, 0, 0]}
+          position={[-0.75, 0, 0]}
+        />
+        {/* <mesh
           name="Volume_Mesher_1_Instance_2"
           castShadow
           receiveShadow
@@ -414,7 +456,7 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
           position={[-10.317, 0.768, 16.284]}
           rotation={[Math.PI / 2, 0, -2.618]}
           scale={0.011}
-        />
+        /> */}
         <mesh
           name="upper_walls_4"
           castShadow
@@ -467,14 +509,6 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
           receiveShadow
           geometry={nodes.FBX_AS01_BambusaVulgaris_2.geometry}
           material={materials.Material}
-          rotation={[Math.PI / 2, 0, 0]}
-        />
-        <mesh
-          name="Volume_Mesher_1"
-          castShadow
-          receiveShadow
-          geometry={nodes.Volume_Mesher_1.geometry}
-          material={materials['Material.001']}
           rotation={[Math.PI / 2, 0, 0]}
         />
         <mesh
