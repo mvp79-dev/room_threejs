@@ -7,7 +7,7 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const scroll = useScroll()
   const group = useRef()
-  const { nodes, materials, animations } = useGLTF('./ABC8.glb')
+  const { nodes, materials, animations } = useGLTF('./ABC9.glb')
   const { actions, ref } = useAnimations(animations, group)
   const [anim3Playing, setAnim3Playing] = useState(false);
 
@@ -37,7 +37,7 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
 
 
   return (
-<group ref={group} {...props} dispose={null}>
+    <group ref={group} {...props} dispose={null}>
       <group name="Scene">
         <group name="Boole" position={[-1561.075, 718.351, -75.306]} />
         <group
@@ -307,7 +307,7 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
             receiveShadow
             geometry={nodes.rock_remesh.geometry}
             material={materials.rock}
-            position={[6.167, -2.44, 205.373]}
+            position={[6.167, -2.44, 213.442]}
             rotation={[-0.022, -0.172, 0.684]}
           />
           <group name="stools" position={[-835.07, -492.569, 176.539]}>
@@ -486,16 +486,6 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
           scale={0.01}
         />
         <mesh
-          name="Boole_3001"
-          castShadow
-          receiveShadow
-          geometry={nodes.Boole_3001.geometry}
-          material={materials.grey}
-          position={[-20.159, 0.117, -47.934]}
-          rotation={[Math.PI / 2, 0, 0]}
-          scale={0.01}
-        />
-        <mesh
           name="floor_oustide"
           castShadow
           receiveShadow
@@ -583,7 +573,7 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
         />
         <group
           name="Plane_1"
-          position={[-15.076, 0.907, -57.122]}
+          position={[-15.076, 0.909, -57.122]}
           rotation={[Math.PI / 2, 0, 0.536]}
           scale={0.01}>
           <mesh
@@ -617,7 +607,7 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
         </group>
         <group
           name="Plane001"
-          position={[-15.61, 0.907, -56.223]}
+          position={[-15.61, 0.913, -56.223]}
           rotation={[Math.PI / 2, 0, 0.536]}
           scale={0.01}>
           <mesh
@@ -642,16 +632,6 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
             material={materials.matte}
           />
         </group>
-        <mesh
-          name="titles"
-          castShadow
-          receiveShadow
-          geometry={nodes.titles.geometry}
-          material={materials.matte}
-          position={[-10.897, 0.001, -15.415]}
-          rotation={[Math.PI / 2, 0, 0]}
-          scale={0.01}
-        />
         <group
           name="monolit001"
           position={[-43.834, 1.896, -39.799]}
@@ -683,22 +663,12 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
           scale={0.01}
         />
         <mesh
-          name="floor_split"
-          castShadow
-          receiveShadow
-          geometry={nodes.floor_split.geometry}
-          material={materials['Seychelles_Beige_Marble_wgildfbv.001']}
-          position={[-26.163, -0.399, -33.902]}
-          rotation={[Math.PI / 2, 0, Math.PI]}
-          scale={0.01}
-        />
-        <mesh
           name="Plane002"
           castShadow
           receiveShadow
           geometry={nodes.Plane002.geometry}
           material={materials['sand.001']}
-          position={[-1.844, -0.161, -0.01]}
+          position={[-1.844, -0.071, -0.01]}
           rotation={[Math.PI / 2, 0, 0]}
           scale={0.01}
         />
@@ -713,11 +683,41 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
           scale={0.01}
         />
         <mesh
-          name="camera_animation2"
+          name="floor_split"
           castShadow
           receiveShadow
-          geometry={nodes.camera_animation2.geometry}
-          material={nodes.camera_animation2.material}
+          geometry={nodes.floor_split.geometry}
+          material={materials['Seychelles_Beige_Marble_wgildfbv.001']}
+          position={[-26.163, -0.429, -33.902]}
+          rotation={[Math.PI / 2, 0, Math.PI]}
+          scale={0.01}
+        />
+        <mesh
+          name="titles"
+          castShadow
+          receiveShadow
+          geometry={nodes.titles.geometry}
+          material={materials.matte}
+          position={[-10.897, 0.001, -15.415]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={0.01}
+        />
+        <mesh
+          name="Boole_3001"
+          castShadow
+          receiveShadow
+          geometry={nodes.Boole_3001.geometry}
+          material={materials.grey}
+          position={[-30.059, 0.117, -48.062]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={0.01}
+        />
+        <mesh
+          name="camera3"
+          castShadow
+          receiveShadow
+          geometry={nodes.camera3.geometry}
+          material={nodes.camera3.material}
           position={[-9.109, 1.27, -11.895]}
           rotation={[1.57, 0.001, 2.593]}
           scale={0.01}
@@ -729,4 +729,4 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
   )
 }
 
-useGLTF.preload('./ABC8.glb')
+useGLTF.preload('./ABC9.glb')

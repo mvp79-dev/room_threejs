@@ -22,7 +22,7 @@ export default function Experience() {
       <EffectComposer disableNormalPass >
         <N8AO aoRadius={20} distanceFalloff={0.2} intensity={1.7} screenSpaceRadius quality="high" halfRes  />
       </EffectComposer>
-      <Environment files="./env4.hdr" background />
+      <Environment files="./env4.hdr" background backgroundBlurriness={ 0 } />
 
       </>
   )
