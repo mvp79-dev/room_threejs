@@ -17,7 +17,7 @@ export default function Experience() {
         color={ "#FCEBE4" } shadow-bias={-0.001} castShadow position={[-5, 25, 25]} 
         intensity={1} shadow-mapSize-width={4096} shadow-mapSize-height={4096} 
       >
-        <orthographicCamera attach="shadow-camera" args={[-75, 75, -75, 75, 0.1, 100]} />
+        <orthographicCamera attach="shadow-camera" args={[-50, 50, -50, 50, 0.1, 100]} />
       </directionalLight>
       <EffectComposer disableNormalPass >
         <N8AO aoRadius={20} distanceFalloff={0.2} intensity={1.7} screenSpaceRadius quality="high" halfRes  />

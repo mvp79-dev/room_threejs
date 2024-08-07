@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { useGLTF, useAnimations, PerspectiveCamera, ScrollControls, useScroll, Html } from '@react-three/drei'
+import { useGLTF, useAnimations, PerspectiveCamera, ScrollControls, useScroll, Html, MeshTransmissionMaterial } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { useMediaQuery } from 'react-responsive';
 
@@ -279,7 +279,7 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
               position={[0, -186.721, 0]}
               scale={0.981}
             >
-             <meshPhysicalMaterial thickness={5} roughness={0} clearcoat={0.25} clearcoatRoughness={0.25} transmission={1} ior={1} />
+             <meshPhysicalMaterial roughness={0} transmission={1}/>
             </mesh>
           </group>
           <group name="inner_circle" position={[4.976, -0.681, 39.407]}>
@@ -451,7 +451,7 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
           rotation={[0, 0, -Math.PI]}
           scale={0.01}
         >
-          <meshPhysicalMaterial thickness={100} roughness={0} clearcoat={1} clearcoatRoughness={1} transmission={1} ior={1} />
+          <MeshTransmissionMaterial thickness={10} roughness={0} transmission={1} ior={1.2} backside={true} clearcoat={1} clearcoatRoughness={0} />
         </mesh>
         <mesh
           name="FBX_AS01_BambusaVulgaris_2"
