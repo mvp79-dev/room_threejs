@@ -451,7 +451,7 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
           rotation={[0, 0, -Math.PI]}
           scale={0.01}
         >
-          <MeshTransmissionMaterial thickness={10} roughness={0} transmission={1} ior={1.2} backside={true} clearcoat={1} clearcoatRoughness={0} />
+          {/* <MeshTransmissionMaterial thickness={10} roughness={0} transmission={1} ior={1.2} backside={true} clearcoat={1} clearcoatRoughness={0} /> */}
         </mesh>
         <mesh
           name="FBX_AS01_BambusaVulgaris_2"
