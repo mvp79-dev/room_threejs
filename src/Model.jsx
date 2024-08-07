@@ -279,7 +279,8 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
               position={[0, -186.721, 0]}
               scale={0.981}
             >
-             <meshPhysicalMaterial roughness={0} transmission={1}/>
+             {/* <meshPhysicalMaterial roughness={0} transmission={1}/> */}
+             <meshPhongMaterial color="#f3f1ed" opacity={0.25} transparent />
             </mesh>
           </group>
           <group name="inner_circle" position={[4.976, -0.681, 39.407]}>
