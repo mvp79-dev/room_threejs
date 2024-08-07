@@ -276,10 +276,11 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
               castShadow
               receiveShadow
               geometry={nodes.glass_save_1.geometry}
-              material={materials.glass}
               position={[0, -186.721, 0]}
               scale={0.981}
-            />
+            >
+             <meshPhysicalMaterial thickness={5} roughness={0} clearcoat={0.25} clearcoatRoughness={0.25} transmission={1} ior={1} />
+            </mesh>
           </group>
           <group name="inner_circle" position={[4.976, -0.681, 39.407]}>
             <mesh
@@ -424,31 +425,34 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
           castShadow
           receiveShadow
           geometry={nodes.Cube_0001.geometry}
-          material={materials.glass}
           position={[-13.88, 1.361, -58.787]}
           rotation={[0, -Math.PI / 6, Math.PI]}
           scale={0.01}
-        />
+        >
+          <meshPhysicalMaterial thickness={5} roughness={0} clearcoat={0.25} clearcoatRoughness={0} transmission={1} ior={1} />
+        </mesh>
         <mesh
           name="Cube_1001"
           castShadow
           receiveShadow
           geometry={nodes.Cube_1001.geometry}
-          material={materials.glass}
           position={[-46.88, 1.361, -39.734]}
           rotation={[-Math.PI, 1.571, 0]}
           scale={0.01}
-        />
+        >
+          <meshPhysicalMaterial thickness={5} roughness={0} clearcoat={0.25} clearcoatRoughness={0} transmission={1} ior={1} />
+        </mesh>
         <mesh
           name="glass_save_1001"
           castShadow
           receiveShadow
           geometry={nodes.glass_save_1001.geometry}
-          material={materials.glass}
           position={[-24.88, 4.211, -39.734]}
           rotation={[0, 0, -Math.PI]}
           scale={0.01}
-        />
+        >
+          <meshPhysicalMaterial thickness={100} roughness={0} clearcoat={1} clearcoatRoughness={1} transmission={1} ior={1} />
+        </mesh>
         <mesh
           name="FBX_AS01_BambusaVulgaris_2"
           castShadow
