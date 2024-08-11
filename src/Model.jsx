@@ -7,7 +7,7 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const scroll = useScroll()
   const group = useRef()
-  const { nodes, materials, animations } = useGLTF('./ABC10.glb')
+  const { nodes, materials, animations } = useGLTF('./ABC11.glb')
   const { actions, ref } = useAnimations(animations, group)
   const [anim3Playing, setAnim3Playing] = useState(false);
 
@@ -236,36 +236,7 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
             </group>
           </group>
           <group name="glass_2" position={[-2.488, 0.34, -18.887]} rotation={[Math.PI / 2, 0, 0]}>
-            <group name="Cloner" position={[0, 98.243, 0]} rotation={[0, Math.PI / 6, 0]}>
-              <mesh
-                name="Cube_0"
-                castShadow
-                receiveShadow
-                geometry={nodes.Cube_0.geometry}
-                material={materials.glass}
-                position={[0, 0, -2200]}
-              />
-              <mesh
-                name="Cube_1_2"
-                castShadow
-                receiveShadow
-                geometry={nodes.Cube_1_2.geometry}
-                material={materials.glass}
-                position={[1905.256, 0, 1100]}
-                rotation={[Math.PI, -Math.PI / 3, Math.PI]}
-              />
-            </group>
-            <mesh
-              name="glass_save_1"
-              castShadow
-              receiveShadow
-              geometry={nodes.glass_save_1.geometry}
-              material={materials.glass}
-              position={[0, -186.721, 0]}
-              scale={0.981}
-            >
-              <meshPhongMaterial color="#f3f1ed" opacity={0.25} transparent />
-            </mesh>
+            <group name="Cloner" position={[0, 98.243, 0]} rotation={[0, Math.PI / 6, 0]} />
           </group>
           <group name="inner_circle" position={[4.976, -0.681, 39.407]}>
             <mesh
@@ -287,15 +258,6 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
               position={[-1.988, -1.864, 19.028]}
             />
           </group>
-          <mesh
-            name="rock_remesh"
-            castShadow
-            receiveShadow
-            geometry={nodes.rock_remesh.geometry}
-            material={materials.rock}
-            position={[6.167, -2.44, 213.442]}
-            rotation={[-0.022, -0.172, 0.684]}
-          />
           <group name="stools" position={[-835.07, -492.569, 176.539]}>
             <group name="Null_1_2" position={[3.963, -110.474, -15.429]}>
               <mesh
@@ -328,7 +290,7 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
               castShadow
               receiveShadow
               geometry={nodes.Disc.geometry}
-              material={nodes.Disc.material}
+              material={materials['Material.002']}
               position={[1.482, 0.881, -5.775]}
             />
             <group name="empore" position={[-4.495, -2.879, 6.744]} rotation={[0, 0, 0.57]}>
@@ -362,7 +324,9 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
               geometry={nodes.glass.geometry}
               material={materials['food hull']}
               position={[1.498, 0.96, 0.686]}
-            />
+            >
+              <meshPhongMaterial color="#f3f1ed" opacity={0.25} transparent />
+            </mesh>
           </group>
         </group>
         <mesh
@@ -435,42 +399,6 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
           rotation={[Math.PI / 2, 0, -2.618]}
           scale={0.011}
         /> */}
-        <mesh
-          name="Cube_0001"
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube_0001.geometry}
-          material={materials.glass}
-          position={[-13.88, 1.361, -58.787]}
-          rotation={[0, -Math.PI / 6, Math.PI]}
-          scale={0.01}
-        >
-          <meshPhongMaterial color="#f3f1ed" opacity={0.25} transparent />
-        </mesh>
-        <mesh
-          name="Cube_1001"
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube_1001.geometry}
-          material={materials.glass}
-          position={[-46.88, 1.361, -39.734]}
-          rotation={[-Math.PI, 1.571, 0]}
-          scale={0.01}
-        >
-          <meshPhongMaterial color="#f3f1ed" opacity={0.25} transparent />
-        </mesh>
-        <mesh
-          name="glass_save_1001"
-          castShadow
-          receiveShadow
-          geometry={nodes.glass_save_1001.geometry}
-          material={materials.glass}
-          position={[-24.88, 4.211, -39.734]}
-          rotation={[0, 0, -Math.PI]}
-          scale={0.01}
-        >
-          <meshPhongMaterial color="#f3f1ed" opacity={0.25} transparent />
-        </mesh>
         <mesh
           name="FBX_AS01_BambusaVulgaris_2"
           castShadow
@@ -650,18 +578,6 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
           rotation={[Math.PI / 2, 0, Math.PI]}
           scale={0.01}
         />
-        <mesh
-          name="camera3"
-          castShadow
-          receiveShadow
-          geometry={nodes.camera3.geometry}
-          material={nodes.camera3.material}
-          position={[-9.109, 1.27, -11.895]}
-          rotation={[1.57, 0.001, 2.593]}
-          scale={0.01}
-        >
-          <PerspectiveCamera far={ 10000 } rotation={ [ Math.PI * -0.5, 0, 0 ] } fov={isMobile ? 85 : 40} makeDefault/>
-        </mesh>
         <group
           name="Boole_2001"
           position={[7.741, -0.239, -2.917]}
@@ -723,57 +639,6 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
               position={[-342.462, -954.103, -86.386]}
             />
           </group>
-        </group>
-        <mesh
-          name="Cube"
-          castShadow
-          receiveShadow
-          geometry={nodes.Cube.geometry}
-          material={materials['alu.001']}
-          position={[-15.369, 1.773, -56.034]}
-          rotation={[Math.PI / 2, 0, 0.536]}
-          scale={0.01}
-        />
-        <group
-          name="kitchen_1"
-          position={[-18.166, 0.855, -58.175]}
-          rotation={[Math.PI / 2, 0, 0]}
-          scale={0.01}>
-          <mesh
-            name="Mesh064"
-            castShadow
-            receiveShadow
-            geometry={nodes.Mesh064.geometry}
-            material={materials['kitchen.001']}
-          />
-          <mesh
-            name="Mesh064_1"
-            castShadow
-            receiveShadow
-            geometry={nodes.Mesh064_1.geometry}
-            material={materials.alu}
-          />
-          <mesh
-            name="Mesh064_2"
-            castShadow
-            receiveShadow
-            geometry={nodes.Mesh064_2.geometry}
-            material={materials.glass}
-          />
-          <mesh
-            name="Mesh064_3"
-            castShadow
-            receiveShadow
-            geometry={nodes.Mesh064_3.geometry}
-            material={materials.matte}
-          />
-          <mesh
-            name="Mesh064_4"
-            castShadow
-            receiveShadow
-            geometry={nodes.Mesh064_4.geometry}
-            material={materials['Material.005']}
-          />
         </group>
         <group
           name="new_format_2"
@@ -1027,36 +892,6 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
           </group>
         </group>
         <mesh
-          name="Magazine_20_07_cm_x_27_45_cm"
-          castShadow
-          receiveShadow
-          geometry={nodes.Magazine_20_07_cm_x_27_45_cm.geometry}
-          material={materials['Material.003']}
-          position={[2.026, 0.984, -4.31]}
-          rotation={[Math.PI / 2, 0, 0]}
-          scale={0.01}
-        />
-        <group
-          name="Boole002"
-          position={[7.741, -0.239, -2.917]}
-          rotation={[Math.PI / 2, 0, 0]}
-          scale={0.01}>
-          <mesh
-            name="Mesh093"
-            castShadow
-            receiveShadow
-            geometry={nodes.Mesh093.geometry}
-            material={materials['grey.001']}
-          />
-          <mesh
-            name="Mesh093_1"
-            castShadow
-            receiveShadow
-            geometry={nodes.Mesh093_1.geometry}
-            material={materials.alu}
-          />
-        </group>
-        <mesh
           name="new_format_8"
           castShadow
           receiveShadow
@@ -1098,9 +933,188 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
         >
           <meshBasicMaterial map={myVideoTexture} />
         </mesh>
+        <mesh
+          name="Aset_nature_rock_S_wenobfys_LOD1"
+          castShadow
+          receiveShadow
+          geometry={nodes.Aset_nature_rock_S_wenobfys_LOD1.geometry}
+          material={materials['rock.001']}
+          position={[-1.825, -0.043, -0.076]}
+          rotation={[1.567, -0.179, 0.712]}
+          scale={0.01}
+        />
+        <group
+          name="Boole002"
+          position={[7.741, -0.239, -2.917]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={0.01}>
+          <mesh
+            name="Mesh036"
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh036.geometry}
+            material={materials['grey.001']}
+          />
+          <mesh
+            name="Mesh036_1"
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh036_1.geometry}
+            material={materials.alu}
+          />
+        </group>
+        <mesh
+          name="Cube_0"
+          castShadow
+          receiveShadow
+          geometry={nodes.Cube_0.geometry}
+          material={materials.glass}
+          position={[-19.14, 3.498, -29.801]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={0.01}
+        >
+          <meshPhongMaterial color="#f3f1ed" opacity={0.25} transparent />
+        </mesh>
+        <group
+          name="lamp"
+          position={[-15.37, 1.757, -56.033]}
+          rotation={[Math.PI / 2, 0, 0.536]}
+          scale={0.01}>
+          <mesh
+            name="Cube"
+            castShadow
+            receiveShadow
+            geometry={nodes.Cube.geometry}
+            material={materials['alu.001']}
+            position={[0.003, -0.116, -1.673]}
+          />
+          <mesh
+            name="Cube_1001"
+            castShadow
+            receiveShadow
+            geometry={nodes.Cube_1001.geometry}
+            material={materials['alu.001']}
+            position={[0.003, -0.116, 1.501]}
+          />
+          <group name="Symmetry001" position={[-0.002, 0.115, 0.086]}>
+            <group
+              name="Null_1_2001"
+              position={[0, -54.919, 0]}
+              rotation={[-Math.PI, 0, -Math.PI]}
+              scale={-1}>
+              <mesh
+                name="Cylinder_1_1_2"
+                castShadow
+                receiveShadow
+                geometry={nodes.Cylinder_1_1_2.geometry}
+                material={materials['alu.001']}
+                position={[0, -1.788, 0]}
+                rotation={[Math.PI, 0, Math.PI]}
+                scale={-1}
+              />
+              <mesh
+                name="Cylinder_1_3"
+                castShadow
+                receiveShadow
+                geometry={nodes.Cylinder_1_3.geometry}
+                material={materials['alu.001']}
+                position={[0, 1.789, 0]}
+                rotation={[Math.PI, 0, Math.PI]}
+                scale={-1}
+              />
+            </group>
+            <group name="Null_3001" position={[0, 54.918, 0]}>
+              <mesh
+                name="Cylinder"
+                castShadow
+                receiveShadow
+                geometry={nodes.Cylinder.geometry}
+                material={materials['alu.001']}
+                position={[0.001, 1.789, 0]}
+              />
+              <mesh
+                name="Cylinder_1_4"
+                castShadow
+                receiveShadow
+                geometry={nodes.Cylinder_1_4.geometry}
+                material={materials['alu.001']}
+                position={[0, -1.789, 0]}
+              />
+            </group>
+            <group name="Null_4001" position={[0, 54.918, 0]}>
+              <group name="Cylinder_1_5" position={[0, -1.789, 0]} />
+              <group name="Cylinder_2" position={[0.001, 1.789, 0]} />
+            </group>
+          </group>
+          <group name="Symmetry_1" position={[-0.002, 0.115, 0.086]}>
+            <group name="Null001" position={[0, 54.918, 0]}>
+              <mesh
+                name="Cylinder_1"
+                castShadow
+                receiveShadow
+                geometry={nodes.Cylinder_1.geometry}
+                material={materials.alu}
+                position={[0, -1.789, -115.613]}
+              />
+            </group>
+            <group
+              name="Null_1001"
+              position={[0, -54.919, 0]}
+              rotation={[-Math.PI, 0, -Math.PI]}
+              scale={-1}>
+              <mesh
+                name="Cylinder_1_1"
+                castShadow
+                receiveShadow
+                geometry={nodes.Cylinder_1_1.geometry}
+                material={materials.alu}
+                position={[0, -1.788, -115.613]}
+                rotation={[Math.PI, 0, Math.PI]}
+                scale={-1}
+              />
+            </group>
+            <group name="Null_2001" position={[0, 54.918, 0]}>
+              <group name="Cylinder_1_2" position={[0, -1.789, -115.613]} />
+            </group>
+          </group>
+        </group>
+        <mesh
+          name="Magazine_20_07_cm_x_27_45_cm001"
+          castShadow
+          receiveShadow
+          geometry={nodes.Magazine_20_07_cm_x_27_45_cm001.geometry}
+          material={materials['Material.003']}
+          position={[2.026, 0.984, -4.31]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={0.01}
+        />
+        <group
+          name="CAM"
+          position={[-9.109, 1.27, -11.895]}
+          rotation={[1.57, 0.001, 2.593]}
+          scale={0.01}
+        >
+          <PerspectiveCamera far={ 10000 } rotation={ [ Math.PI * -0.5, 0, 0 ] } fov={isMobile ? 85 : 40} makeDefault/>
+        </group>
+        <mesh
+          name="kitchen_1_1"
+          castShadow
+          receiveShadow
+          geometry={nodes.kitchen_1_1.geometry}
+          material={materials.matte}
+          rotation={[Math.PI / 2, 0, 0]}
+        />
+        <mesh
+          name="kitchen_1_0"
+          castShadow
+          receiveShadow
+          geometry={nodes.kitchen_1_0.geometry}
+          material={materials['kitchen.001']}
+          rotation={[Math.PI / 2, 0, 0]}
+        />
       </group>
     </group>
   )
 }
 
-useGLTF.preload('./ABC10.glb')
+useGLTF.preload('./ABC11.glb')
