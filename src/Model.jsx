@@ -7,7 +7,7 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
   const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
   const scroll = useScroll()
   const group = useRef()
-  const { nodes, materials, animations } = useGLTF('./ABC9.glb')
+  const { nodes, materials, animations } = useGLTF('./ABC10.glb')
   const { actions, ref } = useAnimations(animations, group)
   const [anim3Playing, setAnim3Playing] = useState(false);
 
@@ -62,16 +62,6 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
                 rotation={[0.08, -0.114, -0.955]}
               />
             </group>
-            <mesh
-              name="monolit"
-              castShadow
-              receiveShadow
-              geometry={nodes.monolit.geometry}
-              position={[2021.128, -347.906, -47.809]}
-              rotation={[ 0, Math.PI / 1, 0 ]}
-            >
-              <meshBasicMaterial map={myVideoTexture} />
-            </mesh>
             <mesh
               name="neuendorf_stool"
               castShadow
@@ -143,17 +133,7 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
                 position={[-92.225, -0.511, -2.283]}
               />
             </group>
-            <group name="lower_walls">
-              <mesh
-                name="Sweep_2"
-                castShadow
-                receiveShadow
-                geometry={nodes.Sweep_2.geometry}
-                material={materials.grey}
-                position={[0, 305.37, 0]}
-                rotation={[-Math.PI / 2, 0, 0]}
-              />
-            </group>
+            <group name="lower_walls" />
             <mesh
               name="Plane_3"
               castShadow
@@ -280,11 +260,11 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
               castShadow
               receiveShadow
               geometry={nodes.glass_save_1.geometry}
+              material={materials.glass}
               position={[0, -186.721, 0]}
               scale={0.981}
             >
-             {/* <meshPhysicalMaterial roughness={0} transmission={1}/> */}
-             <meshPhongMaterial color="#f3f1ed" opacity={0.25} transparent />
+              <meshPhongMaterial color="#f3f1ed" opacity={0.25} transparent />
             </mesh>
           </group>
           <group name="inner_circle" position={[4.976, -0.681, 39.407]}>
@@ -385,12 +365,6 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
             />
           </group>
         </group>
-        {/* <Instances geometry={nodes.Volume_Mesher_1.geometry} material={materials['Material.001']}>
-          <boxGeometry />
-          <Instance position={[-11.227, 0.719, 16.352]} rotation={[Math.PI / 2, 0, -2.618]} scale={1} />
-          <Instance position={[-12.024, 0.868, 15.692]} rotation={[Math.PI / 2, 0, -2.618]} scale={1} />
-          <Instance position={[-10.317, 0.768, 16.284]} rotation={[Math.PI / 2, 0, -2.618]} scale={1} />
-        </Instances> */}
         <mesh
           name="Volume_Mesher_1"
           castShadow
@@ -398,7 +372,6 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
           geometry={nodes.Volume_Mesher_1.geometry}
           material={materials['Material.001']}
           rotation={[Math.PI / 2, 0, 0]}
-          position={[0, 0, 0]}
         />
         <mesh
           name="Volume_Mesher_1"
@@ -427,6 +400,11 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
           rotation={[Math.PI / 2, 0, 0]}
           position={[-0.75, 0, 0]}
         />
+        {/* <Instances geometry={nodes.Volume_Mesher_1_Instance_2.geometry} material={materials['Material.001']}>
+          <Instance position={[-11.227, 0.719, 16.352]} rotation={[Math.PI / 2, 0, -2.618]} scale={0.011} />
+          <Instance position={[-12.024, 0.868, 15.692]} rotation={[Math.PI / 2, 0, -2.618]} scale={0.011}  />
+          <Instance position={[-10.317, 0.768, 16.284]} rotation={[Math.PI / 2, 0, -2.618]} scale={0.011}  />
+        </Instances> */}
         {/* <mesh
           name="Volume_Mesher_1_Instance_2"
           castShadow
@@ -458,25 +436,15 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
           scale={0.011}
         /> */}
         <mesh
-          name="upper_walls_4"
-          castShadow
-          receiveShadow
-          geometry={nodes.upper_walls_4.geometry}
-          material={materials.grey}
-          position={[-1.919, 2.628, 0]}
-          rotation={[Math.PI / 2, 0, 0]}
-          scale={0.01}
-        />
-        <mesh
           name="Cube_0001"
           castShadow
           receiveShadow
           geometry={nodes.Cube_0001.geometry}
+          material={materials.glass}
           position={[-13.88, 1.361, -58.787]}
           rotation={[0, -Math.PI / 6, Math.PI]}
           scale={0.01}
         >
-          {/* <meshPhysicalMaterial thickness={5} roughness={0} clearcoat={0.25} clearcoatRoughness={0} transmission={1} ior={1} /> */}
           <meshPhongMaterial color="#f3f1ed" opacity={0.25} transparent />
         </mesh>
         <mesh
@@ -484,11 +452,11 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
           castShadow
           receiveShadow
           geometry={nodes.Cube_1001.geometry}
+          material={materials.glass}
           position={[-46.88, 1.361, -39.734]}
           rotation={[-Math.PI, 1.571, 0]}
           scale={0.01}
         >
-          {/* <meshPhysicalMaterial thickness={5} roughness={0} clearcoat={0.25} clearcoatRoughness={0} transmission={1} ior={1} /> */}
           <meshPhongMaterial color="#f3f1ed" opacity={0.25} transparent />
         </mesh>
         <mesh
@@ -496,11 +464,11 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
           castShadow
           receiveShadow
           geometry={nodes.glass_save_1001.geometry}
+          material={materials.glass}
           position={[-24.88, 4.211, -39.734]}
           rotation={[0, 0, -Math.PI]}
           scale={0.01}
         >
-          {/* <MeshTransmissionMaterial thickness={10} roughness={0} transmission={1} ior={1.2} backside={true} clearcoat={1} clearcoatRoughness={0} /> */}
           <meshPhongMaterial color="#f3f1ed" opacity={0.25} transparent />
         </mesh>
         <mesh
@@ -536,7 +504,7 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
           castShadow
           receiveShadow
           geometry={nodes.floor_oustide.geometry}
-          material={materials['concrete outside']}
+          material={materials['grey.001']}
           position={[-26.163, -0.399, -33.902]}
           rotation={[Math.PI / 2, 0, Math.PI]}
           scale={0.01}
@@ -562,16 +530,6 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
           scale={0.01}
         />
         <mesh
-          name="Connect"
-          castShadow
-          receiveShadow
-          geometry={nodes.Connect.geometry}
-          material={materials['grey.001']}
-          position={[7.741, -0.239, -2.917]}
-          rotation={[Math.PI / 2, 0, 0]}
-          scale={0.01}
-        />
-        <mesh
           name="Buch_1"
           castShadow
           receiveShadow
@@ -590,32 +548,6 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
           position={[0.978, 0.979, -5.065]}
           rotation={[0, -0.494, 0]}
           scale={0.01}
-        />
-        <mesh
-          name="Magazine_20_07_cm_x_27_45_cm"
-          castShadow
-          receiveShadow
-          geometry={nodes.Magazine_20_07_cm_x_27_45_cm.geometry}
-          material={materials['Material.003']}
-          position={[2.026, 0.984, -4.31]}
-          rotation={[Math.PI / 2, 0, 0]}
-          scale={0.01}
-        />
-        <mesh
-          name="kitchen_1_1"
-          castShadow
-          receiveShadow
-          geometry={nodes.kitchen_1_1.geometry}
-          material={materials['Material.004']}
-          rotation={[Math.PI / 2, 0, 0]}
-        />
-        <mesh
-          name="kitchen_1_0"
-          castShadow
-          receiveShadow
-          geometry={nodes.kitchen_1_0.geometry}
-          material={materials['Material.005']}
-          rotation={[Math.PI / 2, 0, 0]}
         />
         <group
           name="Plane_1"
@@ -678,26 +610,6 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
             material={materials.matte}
           />
         </group>
-        <group
-          name="monolit001"
-          position={[-43.834, 1.896, -39.799]}
-          rotation={[Math.PI / 2, 0, 0]}
-          scale={0.01}>
-          <mesh
-            name="Mesh046"
-            castShadow
-            receiveShadow
-            geometry={nodes.Mesh046.geometry}
-            material={materials.alu}
-          />
-          <mesh
-            name="Mesh046_1"
-            castShadow
-            receiveShadow
-            geometry={nodes.Mesh046_1.geometry}
-            material={materials['emission.001']}
-          />
-        </group>
         <mesh
           name="Plane_4"
           castShadow
@@ -739,26 +651,6 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
           scale={0.01}
         />
         <mesh
-          name="titles"
-          castShadow
-          receiveShadow
-          geometry={nodes.titles.geometry}
-          material={materials.matte}
-          position={[-10.897, 0.001, -15.415]}
-          rotation={[Math.PI / 2, 0, 0]}
-          scale={0.01}
-        />
-        <mesh
-          name="Boole_3001"
-          castShadow
-          receiveShadow
-          geometry={nodes.Boole_3001.geometry}
-          material={materials.grey}
-          position={[-30.059, 0.117, -48.062]}
-          rotation={[Math.PI / 2, 0, 0]}
-          scale={0.01}
-        />
-        <mesh
           name="camera3"
           castShadow
           receiveShadow
@@ -770,9 +662,445 @@ export default function Model(props, { handleWhiteButtonOneClick }) {
         >
           <PerspectiveCamera far={ 10000 } rotation={ [ Math.PI * -0.5, 0, 0 ] } fov={isMobile ? 85 : 40} makeDefault/>
         </mesh>
+        <group
+          name="Boole_2001"
+          position={[7.741, -0.239, -2.917]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={0.01}>
+          <group name="Connect_2" />
+          <group name="Cube_0_1_2" position={[-2687.914, -2688.307, -373.741]} />
+        </group>
+        <group
+          name="Boole001"
+          position={[-1.919, 2.628, 0]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={0.01}>
+          <mesh
+            name="Cube_0_1_3"
+            castShadow
+            receiveShadow
+            geometry={nodes.Cube_0_1_3.geometry}
+            material={materials.alu_0}
+            position={[-1722.048, -2980.052, -87.079]}
+          />
+          <group name="Cube_0_1_4" position={[-1722.048, -2980.052, -87.079]} />
+          <mesh
+            name="upper_walls_4"
+            castShadow
+            receiveShadow
+            geometry={nodes.upper_walls_4.geometry}
+            material={materials['grey.002']}
+          />
+          <group name="upper_walls_4_2" />
+        </group>
+        <group
+          name="Boole_1"
+          position={[-5.881, 1.107, -14.101]}
+          rotation={[Math.PI / 2, 0, -2.172]}
+          scale={0.01}>
+          <mesh
+            name="Boole_3001"
+            castShadow
+            receiveShadow
+            geometry={nodes.Boole_3001.geometry}
+            material={nodes.Boole_3001.material}
+          />
+          <group name="Symmetry" position={[443.578, -311.995, 110.744]} rotation={[0, 0, 1.641]}>
+            <mesh
+              name="Cube_1"
+              castShadow
+              receiveShadow
+              geometry={nodes.Cube_1.geometry}
+              material={nodes.Cube_1.material}
+              position={[342.462, -954.103, -86.386]}
+            />
+            <mesh
+              name="Cube_1_1"
+              castShadow
+              receiveShadow
+              geometry={nodes.Cube_1_1.geometry}
+              material={nodes.Cube_1_1.material}
+              position={[-342.462, -954.103, -86.386]}
+            />
+          </group>
+        </group>
+        <mesh
+          name="Cube"
+          castShadow
+          receiveShadow
+          geometry={nodes.Cube.geometry}
+          material={materials['alu.001']}
+          position={[-15.369, 1.773, -56.034]}
+          rotation={[Math.PI / 2, 0, 0.536]}
+          scale={0.01}
+        />
+        <group
+          name="kitchen_1"
+          position={[-18.166, 0.855, -58.175]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={0.01}>
+          <mesh
+            name="Mesh064"
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh064.geometry}
+            material={materials['kitchen.001']}
+          />
+          <mesh
+            name="Mesh064_1"
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh064_1.geometry}
+            material={materials.alu}
+          />
+          <mesh
+            name="Mesh064_2"
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh064_2.geometry}
+            material={materials.glass}
+          />
+          <mesh
+            name="Mesh064_3"
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh064_3.geometry}
+            material={materials.matte}
+          />
+          <mesh
+            name="Mesh064_4"
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh064_4.geometry}
+            material={materials['Material.005']}
+          />
+        </group>
+        <group
+          name="new_format_2"
+          position={[-7.183, 0.002, 13.15]}
+          rotation={[Math.PI / 2, 0, 2.301]}
+          scale={[0.008, 0.008, 0.01]}>
+          <mesh
+            name="Plane003"
+            castShadow
+            receiveShadow
+            geometry={nodes.Plane003.geometry}
+            material={materials.titles}
+            position={[25.726, 12.532, 0.072]}
+            rotation={[0, 0, -Math.PI / 2]}
+          />
+          <mesh
+            name="Plane_4001"
+            castShadow
+            receiveShadow
+            geometry={nodes.Plane_4001.geometry}
+            material={materials.titles}
+            position={[-3.039, -11.252, 0.072]}
+            rotation={[0, 0, -Math.PI]}
+          />
+          <group
+            name="Text"
+            position={[2.268, -25.149, -0.048]}
+            rotation={[-Math.PI / 2, -Math.PI / 2, 0]}>
+            <group name="Text_Spline">
+              <group name="1">
+                <group name="DO" position={[3.003, 0, 0]}>
+                  <mesh
+                    name="D"
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.D.geometry}
+                    material={materials.titles}
+                  />
+                  <mesh
+                    name="O"
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.O.geometry}
+                    material={materials.titles}
+                    position={[5.041, 0, 0]}
+                  />
+                </group>
+                <group name="I">
+                  <mesh
+                    name="I_2"
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.I_2.geometry}
+                    material={materials.titles}
+                  />
+                </group>
+                <group name="YOU" position={[15.038, 0, 0]}>
+                  <mesh
+                    name="O_2"
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.O_2.geometry}
+                    material={materials.titles}
+                    position={[3.779, 0, 0]}
+                  />
+                  <mesh
+                    name="U"
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.U.geometry}
+                    material={materials.titles}
+                    position={[9.475, 0, 0]}
+                  />
+                  <mesh
+                    name="Y"
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.Y.geometry}
+                    material={materials.titles}
+                  />
+                </group>
+              </group>
+            </group>
+          </group>
+          <group name="Text_1" position={[-30.945, 21.537, -0.048]} rotation={[-Math.PI / 2, 0, 0]}>
+            <group name="Text_Spline_2">
+              <group name="1_2">
+                <group name="2022">
+                  <mesh
+                    name="0"
+                    castShadow
+                    receiveShadow
+                    geometry={nodes['0'].geometry}
+                    material={materials.titles}
+                    position={[4.147, 0, 0]}
+                  />
+                  <mesh
+                    name="2"
+                    castShadow
+                    receiveShadow
+                    geometry={nodes['2'].geometry}
+                    material={materials.titles}
+                  />
+                  <mesh
+                    name="2_2"
+                    castShadow
+                    receiveShadow
+                    geometry={nodes['2_2'].geometry}
+                    material={materials.titles}
+                    position={[8.294, 0, 0]}
+                  />
+                  <mesh
+                    name="2_3"
+                    castShadow
+                    receiveShadow
+                    geometry={nodes['2_3'].geometry}
+                    material={materials.titles}
+                    position={[12.441, 0, 0]}
+                  />
+                </group>
+              </group>
+            </group>
+          </group>
+          <group name="Text_2" position={[7.295, 21.537, -0.048]} rotation={[-Math.PI / 2, 0, 0]}>
+            <group name="Text_Spline_3">
+              <group name="1_3">
+                <group name="BONVICINI" position={[32.811, 0, 0]}>
+                  <mesh
+                    name="B"
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.B.geometry}
+                    material={materials.titles}
+                  />
+                  <mesh
+                    name="C_2"
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.C_2.geometry}
+                    material={materials.titles}
+                    position={[23.366, 0, 0]}
+                  />
+                  <mesh
+                    name="I_4"
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.I_4.geometry}
+                    material={materials.titles}
+                    position={[21.314, 0, 0]}
+                  />
+                  <mesh
+                    name="I_5"
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.I_5.geometry}
+                    material={materials.titles}
+                    position={[28.707, 0, 0]}
+                  />
+                  <mesh
+                    name="I_6"
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.I_6.geometry}
+                    material={materials.titles}
+                    position={[36.415, 0, 0]}
+                  />
+                  <mesh
+                    name="N_2"
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.N_2.geometry}
+                    material={materials.titles}
+                    position={[11.011, 0, 0]}
+                  />
+                  <mesh
+                    name="N_3"
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.N_3.geometry}
+                    material={materials.titles}
+                    position={[30.759, 0, 0]}
+                  />
+                  <mesh
+                    name="O_4"
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.O_4.geometry}
+                    material={materials.titles}
+                    position={[4.741, 0, 0]}
+                  />
+                  <mesh
+                    name="V"
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.V.geometry}
+                    material={materials.titles}
+                    position={[16.667, 0, 0]}
+                  />
+                </group>
+                <group name="MONICA">
+                  <mesh
+                    name="A"
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.A.geometry}
+                    material={materials.titles}
+                    position={[25.762, 0, 0]}
+                  />
+                  <mesh
+                    name="C"
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.C.geometry}
+                    material={materials.titles}
+                    position={[20.506, 0, 0]}
+                  />
+                  <mesh
+                    name="I_3"
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.I_3.geometry}
+                    material={materials.titles}
+                    position={[18.454, 0, 0]}
+                  />
+                  <mesh
+                    name="M"
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.M.geometry}
+                    material={materials.titles}
+                  />
+                  <mesh
+                    name="N"
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.N.geometry}
+                    material={materials.titles}
+                    position={[12.799, 0, 0]}
+                  />
+                  <mesh
+                    name="O_3"
+                    castShadow
+                    receiveShadow
+                    geometry={nodes.O_3.geometry}
+                    material={materials.titles}
+                    position={[6.528, 0, 0]}
+                  />
+                </group>
+              </group>
+            </group>
+          </group>
+        </group>
+        <mesh
+          name="Magazine_20_07_cm_x_27_45_cm"
+          castShadow
+          receiveShadow
+          geometry={nodes.Magazine_20_07_cm_x_27_45_cm.geometry}
+          material={materials['Material.003']}
+          position={[2.026, 0.984, -4.31]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={0.01}
+        />
+        <group
+          name="Boole002"
+          position={[7.741, -0.239, -2.917]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={0.01}>
+          <mesh
+            name="Mesh093"
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh093.geometry}
+            material={materials['grey.001']}
+          />
+          <mesh
+            name="Mesh093_1"
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh093_1.geometry}
+            material={materials.alu}
+          />
+        </group>
+        <mesh
+          name="new_format_8"
+          castShadow
+          receiveShadow
+          geometry={nodes.new_format_8.geometry}
+          material={materials.matte}
+          position={[-12.174, 0.402, -19.43]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={0.01}
+        />
+        <group
+          name="monolit_1"
+          position={[-43.834, 1.896, -39.799]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={0.01}>
+          <mesh
+            name="Mesh001"
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh001.geometry}
+            material={materials.alu}
+          />
+          <mesh
+            name="Mesh001_1"
+            castShadow
+            receiveShadow
+            geometry={nodes.Mesh001_1.geometry}
+            material={materials['emission.001']}
+          />
+        </group>
+        <mesh
+          name="monolit"
+          castShadow
+          receiveShadow
+          geometry={nodes.monolit.geometry}
+          material={materials.emission}
+          position={[16.112, 1.499, 0]}
+          rotation={[ Math.PI / 2, Math.PI / 1, 0 ]}
+          scale={0.01}
+        >
+          <meshBasicMaterial map={myVideoTexture} />
+        </mesh>
       </group>
     </group>
   )
 }
 
-useGLTF.preload('./ABC9.glb')
+useGLTF.preload('./ABC10.glb')
