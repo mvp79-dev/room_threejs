@@ -36,7 +36,7 @@ export default function Experience() {
           color={"black"}
         />
       </EffectComposer>
-      <Environment files="/sky.hdr" background backgroundBlurriness={ 0 } backgroundIntensity={1} environmentIntensity={0.5} />
+      <Environment files="/env4.hdr" background backgroundBlurriness={ 0 } backgroundIntensity={1} environmentIntensity={0.5} />
       {/* <OrbitControls /> */}
       {/* <ambientLight intensity={ 0.5 } /> */}
 
