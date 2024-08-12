@@ -1,7 +1,8 @@
-import { Environment, ScrollControls, Html, Scroll, SoftShadows } from '@react-three/drei'
+import { Environment, ScrollControls, Html, Scroll, SoftShadows, OrbitControls } from '@react-three/drei'
 import Model from './Model'
 import { Suspense, useState } from 'react'
-import { EffectComposer, N8AO } from '@react-three/postprocessing'
+import { EffectComposer, N8AO, SSAO } from "@react-three/postprocessing"
+import { BlendFunction } from 'postprocessing'
 
 export default function Experience() {
 
@@ -19,10 +20,24 @@ export default function Experience() {
       >
         <orthographicCamera attach="shadow-camera" args={[-50, 50, -50, 50, 0.1, 100]} />
       </directionalLight>
-      <EffectComposer disableNormalPass >
-        <N8AO aoRadius={20} distanceFalloff={0.2} intensity={1.7} screenSpaceRadius quality="high" halfRes  />
+      <EffectComposer enableNormalPass >
+        <SSAO
+          blendFunction={BlendFunction.MULTIPLY} // blend mode
+          samples={9} // amount of samples per pixel (shouldn't be a multiple of the ring count)
+          rings={4} // amount of rings in the occlusion sampling pattern
+          distanceThreshold={1.0} // global distance threshold at which the occlusion effect starts to fade out. min: 0, max: 1
+          distanceFalloff={0.0} // distance falloff. min: 0, max: 1
+          rangeThreshold={0.5} // local occlusion range threshold at which the occlusion starts to fade out. min: 0, max: 1
+          rangeFalloff={0.1} // occlusion range falloff. min: 0, max: 1
+          luminanceInfluence={0.9} // how much the luminance of the scene influences the ambient occlusion
+          radius={20} // occlusion sampling radius
+          scale={0.5} // scale of the ambient occlusion
+          bias={0.5} // occlusion bias
+          color={"black"}
+        />
       </EffectComposer>
-      <Environment files="./env4.hdr" background backgroundBlurriness={ 0 } backgroundIntensity={1} environmentIntensity={0} />
+      <Environment files="./env6.jpg" background backgroundBlurriness={ 0 } backgroundIntensity={1} environmentIntensity={1} />
+      {/* <OrbitControls /> */}
       {/* <ambientLight intensity={ 0.5 } /> */}
 
       </>
